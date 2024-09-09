@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   Grid,
   Card,
@@ -9,21 +10,26 @@ import {
 } from "@mui/material";
 
 const products = [
-  { id: 1, name: "Product 1", price: "$100", image: "/product1.jpg" },
-  { id: 2, name: "Product 2", price: "$200", image: "/product2.jpg" },
-  { id: 3, name: "Product 3", price: "$300", image: "/product2.jpg" },
+  {
+    id: 1,
+    name: "Product 1",
+    price: "$100",
+    image: "/hat.png",
+  },
+  { id: 2, name: "Product 2", price: "$200", image: "/shirt-black.webp" },
+  { id: 3, name: "Product 3", price: "$300", image: "/shirt-white.webp" },
 ];
 
 function ProductGrid() {
   return (
     <Grid container spacing={3}>
       {products.map((product) => (
-        <Grid item xs={12} sm={6} md={4} key={product.id}>
+        <Grid item xs={4} sm={6} md={6} key={product.id}>
           <Card>
             <CardMedia
               component="img"
               alt={product.name}
-              height="140"
+              height="150"
               image={product.image}
               title={product.name}
             />

@@ -1,0 +1,25 @@
+@keyframes slideIn {
+  from {
+    transform: translateX(-150%); /* Start far off to the left */
+  }
+  to {
+    transform: translateX(0); /* End at normal position */
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0); /* Start at normal position */
+  }
+  to {
+    transform: translateX(-150%); /* Move off-screen left */
+  }
+}
+
+.slide-in {
+  animation: slideIn 1.2s ease-out forwards;
+}
+
+.slide-out {
+  animation: slideOut 1.2s ease-out forwards;
+}

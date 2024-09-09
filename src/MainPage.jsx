@@ -11,6 +11,7 @@ import InventorySolutions from "./components/InventorySolutions";
 import ProblemInventory from "./ProblemInventory";
 import PromotionalProducts from "./PromotionalProducts";
 import Contact from "./components/contact/Contact";
+import EveryHumanText from "./components/EveryhumanText";
 
 function MainPage() {
   const [isNavVisible, setIsNavVisible] = useState(false);
