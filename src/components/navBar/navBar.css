@@ -1,0 +1,21 @@
+.menu-button {
+  opacity: 0.2;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 2000;
+}
+
+.menu-button:hover {
+  opacity: 1;
+  z-index: 2000;
+}
+
+.shopping-cart-button {
+  opacity: 0.2;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 2000;
+}
+
+.shopping-cart-button:hover {
+  opacity: 1;
+  z-index: 2000;
+}
