@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   Grid,
   Card,
@@ -8,6 +7,7 @@ import {
   Typography,
   Button,
 } from "@mui/material";
+import { useInventory } from "../context/InventoryContext";
 
 const products = [
   {
@@ -21,16 +21,18 @@ const products = [
 ];
 
 function ProductGrid() {
+  const { inventoryItems } = useInventory();
+
   return (
     <Grid container spacing={3}>
-      {products.map((product) => (
-        <Grid item xs={4} sm={6} md={6} key={product.id}>
+      {inventoryItems.map((product) => (
+        <Grid item xs={12} sm={6} md={4} key={product.id}>
           <Card>
             <CardMedia
               component="img"
               alt={product.name}
-              height="150"
-              image={product.image}
+              height="140"
+              image={product.image || "/default-image.jpg"}
               title={product.name}
             />
             <CardContent>

@@ -4,6 +4,7 @@ import InventoryChart from "./InventoryChart";
 import InventoryTable from "./InventoryTable";
 import PlanningForm from "./PlanningForm";
 import InventoryAccordion from "./InventoryAccordion";
+import InventoryForm from "../context/InventoryForm";
 
 function ProblemInventory() {
   return (
@@ -28,6 +29,15 @@ function ProblemInventory() {
           the process of creating a healthy asset listing. everyhuman® – we’re
           better together
         </Typography>
+
+        {/* Add New Inventory Form */}
+        <Box sx={{ mb: 4 }}>
+          <Typography variant="h4" sx={{ mb: 2 }}>
+            Add New Inventory Item
+          </Typography>
+          <InventoryForm />{" "}
+          {/* This is the entry point where users add items */}
+        </Box>
 
         {/* Inventory Chart Section */}
         <Box sx={{ mb: 6 }}>

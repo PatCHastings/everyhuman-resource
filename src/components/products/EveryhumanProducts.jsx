@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Typography, Box } from "@mui/material";
 import ProductGrid from "./ProductGrid";
-import EveryhumanText from "../components/EveryhumanText";
+import EveryhumanText from "../EveryhumanText";
 
 function EveryhumanProducts() {
   return (
