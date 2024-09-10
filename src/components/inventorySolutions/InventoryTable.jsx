@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import { useInventory } from "../context/InventoryContext";
+import { useInventory } from "../context/InventoryContext"; // Adjust path
 import { Button } from "@mui/material";
 
 const columns = [
@@ -13,13 +13,16 @@ const columns = [
 ];
 
 function InventoryTable() {
-  const { inventoryItems, addToProductGrid } = useInventory(); // Access inventory items from context
-  const [selectedRows, setSelectedRows] = useState([]);
+  const { inventoryItems, addToProductGrid } = useInventory(); // Access inventory context
+  const [selectionModel, setSelectionModel] = useState([]); // State to track selected rows
 
+  // Function to handle adding selected rows to ProductGrid
   const handleAddToProductGrid = () => {
     const selectedItems = inventoryItems.filter((item) =>
-      selectedRows.includes(item.id)
+      selectionModel.includes(item.id)
     );
+    console.log("Selected Rows: ", selectionModel); // Debug selected rows
+    console.log("Selected Items: ", selectedItems); // Debug selected items
     addToProductGrid(selectedItems); // Add selected items to ProductGrid
   };
 
@@ -31,9 +34,13 @@ function InventoryTable() {
           columns={columns}
           pageSize={5}
           checkboxSelection
-          onSelectionModelChange={(newSelection) => {
-            setSelectedRows(newSelection);
+          onRowSelectionModelChange={(newSelection) => {
+            // Ensure that newSelection is an array of IDs
+            if (Array.isArray(newSelection)) {
+              setSelectionModel(newSelection); // Set the selection model to the IDs of the selected rows
+            }
           }}
+          rowSelectionModel={selectionModel} // Bind the current selection model
         />
       </div>
       <Button

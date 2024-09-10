@@ -7,8 +7,8 @@ import ProductGrid from "./components/products/ProductGrid";
 import AboutUs from "./components/AboutUs";
 import "./mainPage.css";
 import EveryhumanProducts from "./components/products/EveryhumanProducts";
-import InventorySolutions from "./components/InventorySolutions";
-import ProblemInventory from "./components/problemInventory/ProblemInventory";
+import ProblemInventory from "./components/ProblemInventory";
+import InventorySolutions from "./components/inventorySolutions/InventorySolutions";
 import PromotionalProducts from "./PromotionalProducts";
 import Contact from "./components/contact/Contact";
 import EveryHumanText from "./components/EveryhumanText";
@@ -31,6 +31,13 @@ function MainPage() {
     transform:
       aboutInView && !hasAnimated ? "translateY(150px)" : "translateY(0)",
     transition: "opacity 0.9s ease-out, transform 0.9s ease-out",
+    position: "absolute",
+    width: "100vw",
+    height: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: "10",
   };
   const coverImageAnimationStyles = {
     opacity: aboutInView ? 1 : 0,
@@ -51,17 +58,17 @@ function MainPage() {
     threshold: 0.4,
   });
 
-  // Inventory Solutions - Intersection observer
-  const { ref: inventorySolutionsRef, inView: inventorySolutionsInView } =
+  // Problem Inventory - Intersection observer
+  const { ref: problemInventoryRef, inView: problemInventoryInView } =
     useInView({
       triggerOnce: false,
       threshold: 0.4,
     });
 
-  // Problem Inventory - Intersection observer
-  const { ref: problemInventoryRef, inView: problemInventoryInView } =
+  // Inventory Solutions - Intersection observer
+  const { ref: inventorySolutionsRef, inView: inventorySolutionsInView } =
     useInView({
-      triggerOnce: true,
+      triggerOnce: false,
       threshold: 0.4,
     });
 
@@ -93,9 +100,44 @@ function MainPage() {
       </div>
 
       {/* About Us Section */}
-      <div ref={aboutRef} style={aboutUsAnimationStyles}>
+      <Box ref={aboutRef} sx={{ aboutUsAnimationStyles }}>
         <AboutUs />
-      </div>
+      </Box>
+
+      {/* Problem Inventory Section */}
+      <Box
+        ref={problemInventoryRef}
+        sx={{
+          opacity: problemInventoryInView ? 1 : 0,
+          transform: problemInventoryInView
+            ? "translateY(0)"
+            : "translateY(40px)",
+          transition: "opacity 0.5s ease-out, transform 0.5s ease-out",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          textAlign: "center",
+          padding: "20px",
+        }}
+      >
+        <ProblemInventory />
+      </Box>
+
+      {/* Inventory Solutions Section */}
+      <Box
+        ref={inventorySolutionsRef}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "200vh",
+          textAlign: "center",
+          padding: "20px",
+        }}
+      >
+        <InventorySolutions />
+      </Box>
 
       {/* EveryHuman Products Section */}
       <Box
@@ -113,46 +155,6 @@ function MainPage() {
         }}
       >
         <EveryhumanProducts />
-      </Box>
-
-      {/* Inventory Solutions Section */}
-      <Box
-        ref={inventorySolutionsRef}
-        sx={{
-          opacity: inventorySolutionsInView ? 1 : 0,
-          transform: inventorySolutionsInView
-            ? "translateY(0)"
-            : "translateY(40px)",
-          transition: "opacity 0.5s ease-out, transform 0.5s ease-out",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-          textAlign: "center",
-          padding: "20px",
-        }}
-      >
-        <InventorySolutions />
-      </Box>
-
-      {/* Problem Inventory Section */}
-      <Box
-        ref={problemInventoryRef}
-        sx={{
-          opacity: problemInventoryInView ? 1 : 0,
-          transform: problemInventoryInView
-            ? "translateY(0)"
-            : "translateY(40px)",
-          transition: "opacity 0.5s ease-out, transform 0.5s ease-out",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "200vh",
-          textAlign: "center",
-          padding: "20px",
-        }}
-      >
-        <ProblemInventory />
       </Box>
 
       {/* Promotional Products Section */}

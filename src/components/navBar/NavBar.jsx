@@ -125,12 +125,12 @@ function NavBar({ isVisible }) {
 
         <MenuItem>
           <ScrollLink
-            to="everyhuman-products"
+            to="problem-inventory"
             smooth={true}
             duration={500}
             onClick={handleMenuClose}
           >
-            everyhuman Products
+            Problem Inventory
           </ScrollLink>
         </MenuItem>
 
@@ -147,12 +147,12 @@ function NavBar({ isVisible }) {
 
         <MenuItem>
           <ScrollLink
-            to="problem-inventory"
+            to="everyhuman-products"
             smooth={true}
             duration={500}
             onClick={handleMenuClose}
           >
-            Problem Inventory
+            everyhuman Products
           </ScrollLink>
         </MenuItem>
 

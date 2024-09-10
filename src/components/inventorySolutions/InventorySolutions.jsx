@@ -5,48 +5,39 @@ import InventoryTable from "./InventoryTable";
 import PlanningForm from "./PlanningForm";
 import InventoryAccordion from "./InventoryAccordion";
 import InventoryForm from "../context/InventoryForm";
+import { display } from "@mui/system";
 
-function ProblemInventory() {
+function InventorySolutions() {
   return (
-    <div id="problem-inventory" className="problem-inventory">
+    <div id="inventory-solutions" className="inventory-solutions">
       <Container>
         {/* Section Header */}
         <Typography variant="h2" sx={{ mb: 4 }}>
-          Problem Inventory
+          Inventory Solutions
         </Typography>
-
-        {/* Intro Text */}
-        <Typography variant="body1" sx={{ mb: 2 }}>
-          Great inventory analysis involves coordinating and managing inventory
-          assets throughout product lifecycles so that all products of all
-          inventory types and classifications are held in appropriate amounts
-          relative to the needs within the organization. Anything else is
-          problem inventory. It’s there without a plan. It arrives without an
-          invitation and accumulates without observation. It’s difficult and
-          costly when it hangs around and it takes special effort to make it
-          leave. We will construct a planning process with you that addresses
-          these points while avoiding inventory vulnerabilities and focusing on
-          the process of creating a healthy asset listing. everyhuman® – we’re
-          better together
-        </Typography>
-
         {/* Add New Inventory Form */}
         <Box sx={{ mb: 4 }}>
           <Typography variant="h4" sx={{ mb: 2 }}>
             Add New Inventory Item
           </Typography>
-          <InventoryForm />{" "}
+          <InventoryForm />
           {/* This is the entry point where users add items */}
         </Box>
-
         {/* Inventory Chart Section */}
-        <Box sx={{ mb: 6 }}>
+        <Box
+          sx={{
+            display: "grid",
+            mb: 6,
+            bgcolor: "rgba(150, 250, 250, 0.8)",
+            boxShadow: 1,
+            borderRadius: 2,
+          }}
+        >
           <Typography variant="h4" sx={{ mb: 2 }}>
             Inventory Health Breakdown
           </Typography>
           <InventoryChart />
         </Box>
-
         {/* Inventory Table Section */}
         <Box sx={{ mb: 6 }}>
           <Typography variant="h4" sx={{ mb: 2 }}>
@@ -54,7 +45,6 @@ function ProblemInventory() {
           </Typography>
           <InventoryTable />
         </Box>
-
         {/* Planning Form Section */}
         <Box sx={{ mb: 6 }}>
           <Typography variant="h4" sx={{ mb: 2 }}>
@@ -62,7 +52,6 @@ function ProblemInventory() {
           </Typography>
           <PlanningForm />
         </Box>
-
         {/* Inventory Analysis and Strategy Accordion */}
         <Box sx={{ mb: 6 }}>
           <Typography variant="h4" sx={{ mb: 2 }}>
@@ -75,4 +64,4 @@ function ProblemInventory() {
   );
 }
 
-export default ProblemInventory;
+export default InventorySolutions;

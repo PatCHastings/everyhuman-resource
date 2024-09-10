@@ -6,36 +6,12 @@
   text-align: center;
 }
 
-.cover-image {
-  height: auto;
-  width: 90%;
-  justify-content: center;
-  align-items: center;
-  opacity: 0.8;
-}
-
 .everyhuman-products {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   height: 100vh;
-}
-
-.inventory-solutions {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 100vh;
-}
-
-.problem-inventory {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 200vh;
 }
 
 .promotional-products {
