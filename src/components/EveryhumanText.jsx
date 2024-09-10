@@ -18,7 +18,7 @@ function EveryhumanText() {
           display: "inline-block", // So it stays inline with "Products"
         }}
       >
-        everyHuman
+        everyhuman
       </Typography>
     </Box>
   );

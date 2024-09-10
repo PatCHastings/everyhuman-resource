@@ -8,7 +8,7 @@ import AboutUs from "./components/AboutUs";
 import "./mainPage.css";
 import EveryhumanProducts from "./products/EveryhumanProducts";
 import InventorySolutions from "./components/InventorySolutions";
-import ProblemInventory from "./ProblemInventory";
+import ProblemInventory from "./components/problemInventory/ProblemInventory";
 import PromotionalProducts from "./PromotionalProducts";
 import Contact from "./components/contact/Contact";
 import EveryHumanText from "./components/EveryhumanText";
@@ -17,16 +17,19 @@ function MainPage() {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const handleMouseEnter = () => setIsNavVisible(true);
   const handleMouseLeave = () => setIsNavVisible(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   // AboutUs - Intersection observer
   const { ref: aboutRef, inView: aboutInView } = useInView({
     triggerOnce: false,
-    threshold: 0.7,
+    threshold: 0.4,
   });
   // AboutUs - Inline animation
+  // only runs the first time it scrolls into view
   const aboutUsAnimationStyles = {
-    opacity: aboutInView ? 1 : 0,
-    transform: aboutInView ? "translateY(150px)" : "translateY(0)",
+    opacity: aboutInView && !hasAnimated ? 1 : 0,
+    transform:
+      aboutInView && !hasAnimated ? "translateY(150px)" : "translateY(0)",
     transition: "opacity 0.9s ease-out, transform 0.9s ease-out",
   };
   const coverImageAnimationStyles = {
@@ -45,28 +48,28 @@ function MainPage() {
   // Products - Intersection observer
   const { ref: productsRef, inView: productsInView } = useInView({
     triggerOnce: false,
-    threshold: 0.7,
+    threshold: 0.4,
   });
 
   // Inventory Solutions - Intersection observer
   const { ref: inventorySolutionsRef, inView: inventorySolutionsInView } =
     useInView({
       triggerOnce: false,
-      threshold: 0.7,
+      threshold: 0.4,
     });
 
   // Problem Inventory - Intersection observer
   const { ref: problemInventoryRef, inView: problemInventoryInView } =
     useInView({
-      triggerOnce: false,
-      threshold: 0.7,
+      triggerOnce: true,
+      threshold: 0.4,
     });
 
   // Promotional Products - Intersection observer
   const { ref: promotionalProductsRef, inView: promotionalProductsInView } =
     useInView({
       triggerOnce: false,
-      threshold: 0.7,
+      threshold: 0.4,
     });
 
   return (
@@ -144,7 +147,7 @@ function MainPage() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          height: "100vh",
+          height: "200vh",
           textAlign: "center",
           padding: "20px",
         }}

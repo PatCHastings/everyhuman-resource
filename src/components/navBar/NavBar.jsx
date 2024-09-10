@@ -130,7 +130,7 @@ function NavBar({ isVisible }) {
             duration={500}
             onClick={handleMenuClose}
           >
-            EveryHuman Products
+            everyhuman Products
           </ScrollLink>
         </MenuItem>
 
