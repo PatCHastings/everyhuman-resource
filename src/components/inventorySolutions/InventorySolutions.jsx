@@ -29,13 +29,14 @@ function InventorySolutions() {
         <Box sx={{ maxWidth: "900px" }}>
           {/* InventoryForm and InventoryChart Side by Side */}
           <Grid container spacing={3} sx={{ mb: 4, justifyContent: "center" }}>
-            <Grid item xs={8} sm={8} md={6}>
+            <Grid item xs={12} sm={8} md={6}>
               <Box
                 sx={{
                   p: 3,
                   boxShadow: 3,
                   borderRadius: 2,
                   bgcolor: "rgba(250, 250, 250, 0.8)",
+                  width: "100%",
                 }}
               >
                 <Typography variant="h4" sx={{ mb: 2 }}>
@@ -44,7 +45,7 @@ function InventorySolutions() {
                 <InventoryForm />
               </Box>
             </Grid>
-            <Grid item xs={8} sm={8} md={6}>
+            <Grid item xs={12} sm={8} md={6}>
               <Box
                 sx={{
                   alignItems: "center",

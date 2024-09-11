@@ -6,8 +6,10 @@ import {
   CardMedia,
   Typography,
   Button,
+  Box,
 } from "@mui/material";
 import { useInventory } from "../context/InventoryContext";
+import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { bgcolor } from "@mui/system";
 import { useTheme } from "@mui/material/styles";
 
@@ -30,18 +32,32 @@ function ProductGrid() {
                 height: "100%",
               }}
             >
-              <CardMedia
-                component="img"
-                alt={product.name}
-                image="/hat.png"
-                title={product.name}
-                sx={{
-                  maxWidth: "100%",
-                  maxHeight: "200px",
-                  objectFit: "contain",
-                  margin: "auto",
-                }}
-              />
+              {product.image ? (
+                <CardMedia
+                  component="img"
+                  alt={product.name}
+                  image={product.image} // Use the product's image
+                  title={product.name}
+                  sx={{
+                    maxWidth: "100%",
+                    maxHeight: "200px",
+                    objectFit: "contain",
+                    margin: "auto",
+                  }}
+                />
+              ) : (
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: "200px",
+                    color: theme.palette.primary.main, // Apply theme color
+                  }}
+                >
+                  <DriveFolderUploadOutlinedIcon sx={{ fontSize: "4rem" }} />
+                </Box>
+              )}
               <CardContent>
                 <Typography variant="h6">{product.name}</Typography>
                 <Typography variant="body2" color="textSecondary">

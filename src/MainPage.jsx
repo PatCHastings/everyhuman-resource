@@ -36,11 +36,10 @@ function MainPage() {
     opacity: aboutInView ? 1 : 0,
     transform: aboutInView ? "translateY(-150px)" : "translateY(0)",
     transition: "opacity 0.9s ease-out, transform 0.9s ease-out",
-    position: "absolute",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    zIndex: "10",
+    position: "relative", // Ensure the image stays within the section
+    width: "100%", // Ensure image takes the full width of the container
+    height: "auto",
+    display: "block", // Make sure the image isn't floating
   };
 
   // Other section observers
@@ -65,21 +64,39 @@ function MainPage() {
         <NavBar isVisible={isNavVisible} />
       </div>
 
-      {/* Covering Image Positioned Over AboutUs */}
-      <div className="cover-image-container" style={coverImageAnimationStyles}>
-        <img
-          src="/everyhuman-promo-prod.png"
-          alt="Cover"
-          className="cover-image"
-        />
-      </div>
-
       {/* About Us Section */}
       <Container
         maxWidth="md"
         ref={aboutRef}
-        sx={{ ...aboutUsAnimationStyles, padding: "200px 0" }}
+        sx={{
+          ...aboutUsAnimationStyles,
+          position: "relative", // Ensure the container has relative positioning
+          padding: "200px 0",
+        }}
       >
+        {/* Cover Image Positioned Over AboutUs */}
+        <Box
+          sx={{
+            ...coverImageAnimationStyles,
+            position: "absolute", // Image is placed absolutely within the Container
+            top: 60,
+            left: 0,
+            right: 0,
+            zIndex: 2,
+          }}
+        >
+          <img
+            src="/everyhuman-promo-prod.png"
+            alt="Cover"
+            className="cover-image"
+            style={{
+              width: "100%",
+              height: "auto",
+              maxHeight: "500px",
+              zIndex: 2,
+            }}
+          />
+        </Box>
         <AboutUs />
       </Container>
 

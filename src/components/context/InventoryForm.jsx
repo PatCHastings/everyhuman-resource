@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import { useInventory } from "./InventoryContext";
 import { Box, Button, TextField, Typography, MenuItem } from "@mui/material";
+import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 
 const categories = ["Excess", "Obsolete", "Slow-Moving"];
 const statuses = ["Available", "Pending", "Sold"];
 
 function InventoryForm() {
   const { addItem } = useInventory();
+  const { uploadIcon } = DriveFolderUploadOutlinedIcon;
   const [formData, setFormData] = useState({
     name: "",
     category: "",
     price: "",
     status: "Available",
     quantity: 0,
+    img: "",
   });
 
   const handleChange = (e) => {
@@ -30,15 +33,17 @@ function InventoryForm() {
       alert("Please fill in all fields.");
       return;
     }
-    addItem(formData); // Add item to inventory context
+    addItem(formData);
     setFormData({
       name: "",
       category: "",
       price: "",
       status: "Available",
       quantity: 0,
-    }); // Reset form
+      img: uploadIcon,
+    });
   };
+  console.log("data: ", formData);
 
   return (
     <Box component="form" onSubmit={handleSubmit} sx={{ mb: 4 }}>

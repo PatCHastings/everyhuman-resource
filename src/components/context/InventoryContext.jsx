@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext } from "react";
+import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 
 // Create Inventory Context
 const InventoryContext = createContext();
@@ -8,22 +9,25 @@ export const useInventory = () => useContext(InventoryContext);
 
 // Inventory Provider Component
 export const InventoryProvider = ({ children }) => {
+  const { uploadIcon } = DriveFolderUploadOutlinedIcon;
   const [inventoryItems, setInventoryItems] = useState([
     {
       id: 1,
-      name: "Item 1",
+      name: "XL Boots",
       category: "Excess",
-      price: "$100",
-      quantity: 500,
+      price: "$120",
+      quantity: 63,
       status: "Available",
+      image: "boots.webp",
     },
     {
       id: 2,
-      name: "Item 2",
+      name: "Hardhat",
       category: "Obsolete",
-      price: "$200",
-      quantity: 1200,
+      price: "$45",
+      quantity: 230,
       status: "Available",
+      image: "hardhat.webp",
     },
   ]);
 

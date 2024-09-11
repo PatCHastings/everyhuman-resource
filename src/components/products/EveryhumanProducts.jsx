@@ -13,7 +13,8 @@ function EveryhumanProducts() {
             &nbsp;Products {/* This remains static */}
           </Typography>
           <Typography variant="body1" sx={{ mb: 6 }}>
-            Explore our range of products designed to improve lives.
+            These products may be problematic in your warehouse, but you can
+            unlock thier value by making them accessible to others:
           </Typography>
           <ProductGrid />
         </Container>
