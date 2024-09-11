@@ -16,7 +16,7 @@ function InventorySolutions() {
         <Box sx={{ display: "flex", alignItems: "center", mb: 4 }}>
           {/* Problem Inventory Title */}
           <Typography variant="h2" sx={{ mr: 2 }}>
-            Problem Inventory
+            Inventory Solutions
           </Typography>
 
           {/* LoadingTimeout component */}
