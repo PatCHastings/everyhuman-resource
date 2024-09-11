@@ -6,15 +6,22 @@ import PlanningForm from "./PlanningForm";
 import InventoryAccordion from "./InventoryAccordion";
 import InventoryForm from "../context/InventoryForm";
 import { display, maxWidth } from "@mui/system";
+import LoadingTimeout from "../animations/LoadingTimeout";
 
 function InventorySolutions() {
   return (
     <div id="inventory-solutions" className="inventory-solutions">
       <Container maxWidth="lg">
         {/* Section Header */}
-        <Typography variant="h2" sx={{ mb: 4, textAlign: "center" }}>
-          Inventory Solutions
-        </Typography>
+        <Box sx={{ display: "flex", alignItems: "center", mb: 4 }}>
+          {/* Problem Inventory Title */}
+          <Typography variant="h2" sx={{ mr: 2 }}>
+            Problem Inventory
+          </Typography>
+
+          {/* LoadingTimeout component */}
+          <LoadingTimeout type="success" />
+        </Box>
 
         <Typography variant="body1" sx={{ mb: 6 }}>
           Every Human Inventory Solutions will assist the organization in

@@ -12,6 +12,9 @@ import InventorySolutions from "./components/inventorySolutions/InventorySolutio
 import PromotionalProducts from "./PromotionalProducts";
 import Contact from "./components/contact/Contact";
 import EveryHumanText from "./components/EveryhumanText";
+import CircularProgress from "@mui/material/CircularProgress";
+import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
+import LoadingTimeout from "./components/animations/LoadingTimeout";
 
 function MainPage() {
   const [isNavVisible, setIsNavVisible] = useState(false);
@@ -162,7 +165,7 @@ function MainPage() {
       </Container>
 
       {/* Contact Us Section */}
-      <Container maxWidth="md" id="contact-us" sx={{ padding: "20px 0" }}>
+      <Container maxWidth="md" id="contact-us" sx={{ padding: "100px 0" }}>
         <Contact />
       </Container>
     </div>

@@ -1,13 +1,20 @@
 import React from "react";
-import { Typography, Container } from "@mui/material";
+import { Typography, Container, Box } from "@mui/material";
+import LoadingTimeout from "./animations/LoadingTimeout";
 
 function ProblemInventory() {
   return (
     <div id="problem-inventory" className="problem-inventory">
       <Container>
-        <Typography variant="h2" sx={{ mb: 4 }}>
-          Problem Inventory
-        </Typography>
+        <Box sx={{ display: "flex", alignItems: "center", mb: 4 }}>
+          {/* Problem Inventory Title */}
+          <Typography variant="h2" sx={{ mr: 2 }}>
+            Problem Inventory
+          </Typography>
+
+          {/* LoadingTimeout component */}
+          <LoadingTimeout type="error" />
+        </Box>
         <Typography variant="body1" sx={{ mb: 6 }}>
           Great inventory analysis involves coordinating and managing inventory
           assets throughout product lifecycles so that all products of all
