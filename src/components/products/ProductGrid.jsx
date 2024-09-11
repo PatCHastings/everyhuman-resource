@@ -18,7 +18,7 @@ function ProductGrid() {
   const COLORS = [theme.palette.boxes.backgroundColor];
 
   return (
-    <Grid container spacing={3}>
+    <Grid container spacing={3} sx={{ justifyContent: "center" }}>
       {selectedProducts.length > 0 ? (
         selectedProducts.map((product) => (
           <Grid item xs={10} sm={8} md={6} lg={6} key={product.id}>

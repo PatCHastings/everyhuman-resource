@@ -31,20 +31,19 @@ function InventoryChart() {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        height: "100%", // Full height of the container
-        width: "100%", // Full width of the container
-        textAlign: "center", // Center the text content
-        mb: 4, // Add margin for spacing
+        width: "100%",
+        textAlign: "center",
+        mb: 4,
       }}
     >
       <Typography variant="h4" sx={{ mb: 2 }}>
         Inventory Health Breakdown
       </Typography>
-      <PieChart width={400} height={400}>
+      <PieChart width={300} height={300}>
         <Pie
           data={categoryData}
-          cx="50%" // Centered horizontally
-          cy="50%" // Centered vertically
+          cx="50%"
+          cy="50%"
           innerRadius={40}
           outerRadius={90}
           fill="#8884d8"
