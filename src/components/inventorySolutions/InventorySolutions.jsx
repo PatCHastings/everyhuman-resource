@@ -26,17 +26,16 @@ function InventorySolutions() {
         </Typography>
 
         {/* Container with maxWidth to prevent overflow */}
-        <Box sx={{ maxWidth: "100%", width: "100%", mx: "auto" }}>
+        <Box sx={{ maxWidth: "1000px", width: "90vw", mx: "auto" }}>
           {/* InventoryForm and InventoryChart Side by Side */}
           <Grid container spacing={3} sx={{ mb: 4 }}>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={8} sm={8} md={6}>
               <Box
                 sx={{
                   p: 3,
-                  boxShadow: 1,
+                  boxShadow: 3,
                   borderRadius: 2,
-                  bgcolor: "rgba(150, 250, 250, 0.8)",
-                  width: "100%",
+                  bgcolor: "rgba(250, 250, 250, 0.8)",
                 }}
               >
                 <Typography variant="h4" sx={{ mb: 2 }}>
@@ -49,10 +48,9 @@ function InventorySolutions() {
               <Box
                 sx={{
                   p: 3,
-                  boxShadow: 1,
+                  boxShadow: 3,
                   borderRadius: 2,
-                  bgcolor: "rgba(150, 250, 250, 0.8)",
-                  width: "100%",
+                  bgcolor: "rgba(250, 250, 250, 0.8)",
                 }}
               >
                 <Typography variant="h4" sx={{ mb: 2 }}>
@@ -67,9 +65,9 @@ function InventorySolutions() {
           <Box
             sx={{
               p: 3,
-              boxShadow: 1,
+              boxShadow: 3,
               borderRadius: 2,
-              bgcolor: "rgba(150, 250, 250, 0.8)",
+              bgcolor: "rgba(250, 250, 250, 0.8)",
               mb: 6,
               width: "100%",
             }}
@@ -89,7 +87,7 @@ function InventorySolutions() {
           </Box>
 
           {/* Inventory Analysis and Strategy Accordion */}
-          <Box sx={{ mb: 6, width: "100%" }}>
+          <Box sx={{ mb: 6, maxWidth: "1000px" }}>
             <Typography variant="h4" sx={{ mb: 2 }}>
               Detailed Inventory Reports
             </Typography>

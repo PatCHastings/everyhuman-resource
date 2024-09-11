@@ -7,8 +7,16 @@ const theme = createTheme({
       main: "rgba(0, 75, 124, 1)",
     },
     secondary: {
-      main: "#6145a3",
+      main: "#694fff",
     },
+    chart: {
+      excess: "#694fff", 
+      obsolete: "#ff0062",
+      slowMoving: "#FFBB28",
+    },
+    boxes: {
+      backgroundColor: "rgba(194, 193, 193, 1)",
+    }
   },
   typography: {
     h1: {

@@ -1,17 +1,18 @@
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import { useInventory } from "../context/InventoryContext";
 import { Box, Typography } from "@mui/material";
-
-const data = [
-  { name: "Healthy", value: 400 },
-  { name: "Problematic", value: 300 },
-  { name: "Excess", value: 300 },
-];
-
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+import { createTheme } from "@mui/material/styles";
+import { useTheme } from "@mui/material/styles";
 
 function InventoryChart() {
   const { inventoryItems } = useInventory(); // Access inventory items from context
+  const theme = useTheme();
+
+  const COLORS = [
+    theme.palette.chart.excess,
+    theme.palette.chart.obsolete,
+    theme.palette.chart.slowMoving,
+  ];
 
   // Calculate the data for the chart by category
   const categoryData = inventoryItems.reduce((acc, item) => {
@@ -30,8 +31,8 @@ function InventoryChart() {
         data={categoryData}
         cx={200}
         cy={200}
-        innerRadius={60}
-        outerRadius={80}
+        innerRadius={40}
+        outerRadius={90}
         fill="#8884d8"
         paddingAngle={5}
         dataKey="value"
