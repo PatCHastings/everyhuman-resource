@@ -26,9 +26,9 @@ function InventorySolutions() {
         </Typography>
 
         {/* Container with maxWidth to prevent overflow */}
-        <Box sx={{ maxWidth: "1000px", width: "90vw", mx: "auto" }}>
+        <Box sx={{ maxWidth: "900px" }}>
           {/* InventoryForm and InventoryChart Side by Side */}
-          <Grid container spacing={3} sx={{ mb: 4 }}>
+          <Grid container spacing={3} sx={{ mb: 4, justifyContent: "center" }}>
             <Grid item xs={8} sm={8} md={6}>
               <Box
                 sx={{
@@ -44,18 +44,16 @@ function InventorySolutions() {
                 <InventoryForm />
               </Box>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={8} sm={8} md={6}>
               <Box
                 sx={{
+                  alignItems: "center",
                   p: 3,
                   boxShadow: 3,
                   borderRadius: 2,
                   bgcolor: "rgba(250, 250, 250, 0.8)",
                 }}
               >
-                <Typography variant="h4" sx={{ mb: 2 }}>
-                  Inventory Health Breakdown
-                </Typography>
                 <InventoryChart />
               </Box>
             </Grid>

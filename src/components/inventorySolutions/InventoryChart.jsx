@@ -1,7 +1,6 @@
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import { useInventory } from "../context/InventoryContext";
 import { Box, Typography } from "@mui/material";
-import { createTheme } from "@mui/material/styles";
 import { useTheme } from "@mui/material/styles";
 
 function InventoryChart() {
@@ -26,24 +25,40 @@ function InventoryChart() {
   }, []);
 
   return (
-    <PieChart width={400} height={400}>
-      <Pie
-        data={categoryData}
-        cx={200}
-        cy={200}
-        innerRadius={40}
-        outerRadius={90}
-        fill="#8884d8"
-        paddingAngle={5}
-        dataKey="value"
-      >
-        {categoryData.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-        ))}
-      </Pie>
-      <Tooltip />
-      <Legend />
-    </PieChart>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100%", // Full height of the container
+        width: "100%", // Full width of the container
+        textAlign: "center", // Center the text content
+        mb: 4, // Add margin for spacing
+      }}
+    >
+      <Typography variant="h4" sx={{ mb: 2 }}>
+        Inventory Health Breakdown
+      </Typography>
+      <PieChart width={400} height={400}>
+        <Pie
+          data={categoryData}
+          cx="50%" // Centered horizontally
+          cy="50%" // Centered vertically
+          innerRadius={40}
+          outerRadius={90}
+          fill="#8884d8"
+          paddingAngle={5}
+          dataKey="value"
+        >
+          {categoryData.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+          ))}
+        </Pie>
+        <Tooltip />
+        <Legend />
+      </PieChart>
+    </Box>
   );
 }
 

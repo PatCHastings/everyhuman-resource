@@ -24,61 +24,39 @@ function MainPage() {
     triggerOnce: false,
     threshold: 0.4,
   });
-  // AboutUs - Inline animation
-  // only runs the first time it scrolls into view
+
   const aboutUsAnimationStyles = {
     opacity: aboutInView && !hasAnimated ? 1 : 0,
     transform:
       aboutInView && !hasAnimated ? "translateY(150px)" : "translateY(0)",
     transition: "opacity 0.9s ease-out, transform 0.9s ease-out",
-    position: "absolute",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    zIndex: "10",
   };
+
   const coverImageAnimationStyles = {
     opacity: aboutInView ? 1 : 0,
     transform: aboutInView ? "translateY(-150px)" : "translateY(0)",
     transition: "opacity 0.9s ease-out, transform 0.9s ease-out",
     position: "absolute",
-
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     zIndex: "10",
   };
 
-  // Products - Intersection observer
+  // Other section observers
   const { ref: productsRef, inView: productsInView } = useInView({
     triggerOnce: false,
     threshold: 0.4,
   });
-
-  // Problem Inventory - Intersection observer
   const { ref: problemInventoryRef, inView: problemInventoryInView } =
-    useInView({
-      triggerOnce: false,
-      threshold: 0.4,
-    });
-
-  // Inventory Solutions - Intersection observer
+    useInView({ triggerOnce: false, threshold: 0.4 });
   const { ref: inventorySolutionsRef, inView: inventorySolutionsInView } =
-    useInView({
-      triggerOnce: false,
-      threshold: 0.4,
-    });
-
-  // Promotional Products - Intersection observer
+    useInView({ triggerOnce: false, threshold: 0.4 });
   const { ref: promotionalProductsRef, inView: promotionalProductsInView } =
-    useInView({
-      triggerOnce: false,
-      threshold: 0.4,
-    });
+    useInView({ triggerOnce: false, threshold: 0.4 });
 
   return (
     <div>
-      {/* Hover area at the top of the viewport to trigger NavBar */}
       <div
         className="nav-hover-area"
         onMouseEnter={handleMouseEnter}
@@ -97,95 +75,79 @@ function MainPage() {
       </div>
 
       {/* About Us Section */}
-      <Box ref={aboutRef} sx={{ aboutUsAnimationStyles }}>
+      <Container
+        maxWidth="md"
+        ref={aboutRef}
+        sx={{ ...aboutUsAnimationStyles, padding: "200px 0" }}
+      >
         <AboutUs />
-      </Box>
+      </Container>
 
       {/* Problem Inventory Section */}
-      <Box
+      <Container
+        maxWidth="md"
         ref={problemInventoryRef}
-        sx={{
-          opacity: problemInventoryInView ? 1 : 0,
-          transform: problemInventoryInView
-            ? "translateY(0)"
-            : "translateY(40px)",
-          transition: "opacity 0.5s ease-out, transform 0.5s ease-out",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-
-          textAlign: "center",
-          padding: "20px",
-        }}
+        sx={{ padding: "200px 0" }}
       >
-        <ProblemInventory />
-      </Box>
+        <Box
+          sx={{
+            opacity: problemInventoryInView ? 1 : 0,
+            transform: problemInventoryInView
+              ? "translateY(0)"
+              : "translateY(40px)",
+            transition: "opacity 0.5s ease-out, transform 0.5s ease-out",
+          }}
+        >
+          <ProblemInventory />
+        </Box>
+      </Container>
 
       {/* Inventory Solutions Section */}
-      <Box
+      <Container
+        maxWidth="md"
         ref={inventorySolutionsRef}
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-
-          textAlign: "center",
-          padding: "20px",
-        }}
+        sx={{ padding: "200px 0" }}
       >
         <InventorySolutions />
-      </Box>
+      </Container>
 
       {/* EveryHuman Products Section */}
-      <Box
-        ref={productsRef}
-        sx={{
-          opacity: productsInView ? 1 : 0,
-          transform: productsInView ? "translateY(0)" : "translateY(40px)",
-          transition: "opacity 0.5s ease-out, transform 0.5s ease-out",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-
-          textAlign: "center",
-        }}
-      >
-        <EveryhumanProducts />
-      </Box>
+      <Container maxWidth="md" ref={productsRef} sx={{ padding: "20px 0" }}>
+        <Box
+          sx={{
+            opacity: productsInView ? 1 : 0,
+            transform: productsInView ? "translateY(0)" : "translateY(40px)",
+            transition: "opacity 0.5s ease-out, transform 0.5s ease-out",
+            textAlign: "center",
+          }}
+        >
+          <EveryhumanProducts />
+        </Box>
+      </Container>
 
       {/* Promotional Products Section */}
-      <Box
+      <Container
+        maxWidth="md"
         ref={promotionalProductsRef}
-        sx={{
-          opacity: promotionalProductsInView ? 1 : 0,
-          transform: promotionalProductsInView
-            ? "translateY(0)"
-            : "translateY(40px)",
-          transition: "opacity 0.5s ease-out, transform 0.5s ease-out",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-
-          textAlign: "center",
-          padding: "20px",
-        }}
+        sx={{ padding: "300px 0" }}
       >
-        <PromotionalProducts />
-      </Box>
+        <Box
+          sx={{
+            opacity: promotionalProductsInView ? 1 : 0,
+            transform: promotionalProductsInView
+              ? "translateY(0)"
+              : "translateY(40px)",
+            transition: "opacity 0.5s ease-out, transform 0.5s ease-out",
+          }}
+        >
+          <PromotionalProducts />
+        </Box>
+      </Container>
 
-      <Box
-        id="contact-us"
-        sx={{
-          padding: "20px",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          textAlign: "center",
-        }}
-      >
+      {/* Contact Us Section */}
+      <Container maxWidth="md" id="contact-us" sx={{ padding: "20px 0" }}>
         <Contact />
-      </Box>
+      </Container>
     </div>
   );
 }
