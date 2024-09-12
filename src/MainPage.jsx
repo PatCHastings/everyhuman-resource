@@ -15,6 +15,7 @@ import EveryHumanText from "./components/EveryhumanText";
 import CircularProgress from "@mui/material/CircularProgress";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import LoadingTimeout from "./components/animations/LoadingTimeout";
+import Footer from "./components/Footer";
 
 function MainPage() {
   const [isNavVisible, setIsNavVisible] = useState(false);
@@ -168,6 +169,10 @@ function MainPage() {
       <Container maxWidth="md" id="contact-us" sx={{ padding: "100px 0" }}>
         <Contact />
       </Container>
+      <div>
+        {/* footer */}
+        <Footer />
+      </div>
     </div>
   );
 }
